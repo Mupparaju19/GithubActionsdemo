@@ -1,0 +1,22 @@
+name: Run Ubuntu System Commands
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run-ubuntu:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the code from the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Run a simple command to show system information
+      - name: Display system information
+        run: |
+          echo "Hello from Ubuntu!"
+          uname -a  # Print kernel information
+          lsb_release -a  # Print distribution information
