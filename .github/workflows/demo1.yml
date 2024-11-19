@@ -17,20 +17,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Setup Node.js environment
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '20'  # Ensures Node.js version 20 compatibility
-
-      # Install dependencies
+      # Set the working directory for the following steps if your project is in a subdirectory
       - name: Install dependencies
         run: npm install
+        working-directory: ./my-app  # Replace with the correct subdirectory path
 
-      # Run the tests
       - name: Run tests
         run: npm test
+        working-directory: ./my-app  # Replace with the correct subdirectory path
 
-      # Build the application
       - name: Build the application
         run: npm run build
+        working-directory: ./my-app  # Replace with the correct subdirectory path
