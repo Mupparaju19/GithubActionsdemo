@@ -1,31 +1,19 @@
-name: CI Pipeline
+name: Hello World
 
 on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
 
 jobs:
-  build:
+  say-hello:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout the repository code
+      # Checkout the code from the repository
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Set the working directory for the following steps if your project is in a subdirectory
-      - name: Install dependencies
-        run: npm install
-        working-directory: ./my-app  # Replace with the correct subdirectory path
-
-      - name: Run tests
-        run: npm test
-        working-directory: ./my-app  # Replace with the correct subdirectory path
-
-      - name: Build the application
-        run: npm run build
-        working-directory: ./my-app  # Replace with the correct subdirectory path
+      # Run a simple Hello World script
+      - name: Print Hello World
+        run: echo "Hello, World!"
